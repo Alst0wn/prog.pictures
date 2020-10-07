@@ -26,21 +26,22 @@ def body(surface, color, outline, x, y, r, flipbool, resolution):
     k = r / 20
     kx = k * (1 - 2 * int(flipbool))
     polygon(bodysurf, color, ((x, y), (int(x - kx * 10) , int(y + k * 5)), (int(x - kx * 30), int(y + k * 25)),
-     (int(x - kx * 55), int(y + k * 40)), (int(x - kx * 70), int(y + k * 70)), (int(x - kx * 44), int(y + k * 55)),
-     (int(x - kx * 32), int(y + k * 60)), (int(x - kx * 15), int(y + k * 85)), (x, int(y + k * 90)),
-     (int(x + kx * 30), int(y + k * 60)), (int(x + kx * 45), int(y + k * 65)), (int(x + kx * 55), int(y + k * 40)),
-     (int(x + kx * 70), int(y + k * 25)), (int(x + kx * 50), int(y + k * 15)), (int(x + kx * 35), int(y + k * 10)), (x, y)))
+            (int(x - kx * 55), int(y + k * 40)), (int(x - kx * 70), int(y + k * 70)), (int(x - kx * 44), int(y + k * 55)),
+            (int(x - kx * 32), int(y + k * 60)), (int(x - kx * 15), int(y + k * 85)), (x, int(y + k * 90)),
+            (int(x + kx * 30), int(y + k * 60)), (int(x + kx * 45), int(y + k * 65)), (int(x + kx * 55), int(y + k * 40)),
+            (int(x + kx * 70), int(y + k * 25)), (int(x + kx * 50), int(y + k * 15)), (int(x + kx * 35), int(y + k * 10)), (x, y)))
     aalines(bodysurf, outline, True, ((x, y), (int(x - kx * 10) , int(y + k * 5)),
-     (int(x - kx * 30), int(y + k * 25)), (int(x - kx * 55), int(y + k * 40)),
-     (int(x - kx * 70), int(y + k * 70)), (int(x - kx * 44), int(y + k * 55)),
-     (int(x - kx * 32), int(y + k * 60)), (int(x - kx * 15), int(y + k * 85)),
-     (x, int(y + k * 90)), (int(x + kx * 30), int(y + k * 60)), (int(x + kx * 45), int(y + k * 65)),
-     (int(x + kx * 55), int(y + k * 40)), (int(x + kx * 70), int(y + k * 25)),
-     (int(x + kx * 50), int(y + k * 15)), (int(x + kx * 35), int(y + k * 10)), (x, y)), 1)
+            (int(x - kx * 30), int(y + k * 25)), (int(x - kx * 55), int(y + k * 40)),
+            (int(x - kx * 70), int(y + k * 70)), (int(x - kx * 44), int(y + k * 55)),
+            (int(x - kx * 32), int(y + k * 60)), (int(x - kx * 15), int(y + k * 85)),
+            (x, int(y + k * 90)), (int(x + kx * 30), int(y + k * 60)), (int(x + kx * 45), int(y + k * 65)),
+            (int(x + kx * 55), int(y + k * 40)), (int(x + kx * 70), int(y + k * 25)),
+            (int(x + kx * 50), int(y + k * 15)), (int(x + kx * 35), int(y + k * 10)), (x, y)), 1)
     circle(bodysurf, color, (x, y + r), r)
     circle(bodysurf, color, (x, y), r)
     circle(bodysurf, outline, (x, y), r, 1)
     surface.blit(bodysurf, (0,0))
+
 
 def eyes(surface, color, iris_color, highlight_color, x, y, r, flipbool, resolution):
     '''
@@ -72,6 +73,7 @@ def eyes(surface, color, iris_color, highlight_color, x, y, r, flipbool, resolut
         circle(eyesurf, highlight_color, (x + r // 2, y - r // 2 + 1), r // 20 + 1)
     surface.blit(eyesurf, (0,0))
 
+
 def ghost(surface, body_color, eye_color, x, y, r, flipbool, transparency, resolution):
     '''
     function draws a ghost
@@ -95,6 +97,7 @@ def ghost(surface, body_color, eye_color, x, y, r, flipbool, transparency, resol
     body(ghostsurf, body_color_t, outline_color, x, y, r, flipbool, resolution)
     eyes(ghostsurf, eye_color_t, outline_color, highlight_color, x, y, r, flipbool, resolution)
     surface.blit (ghostsurf, (0, 0))
+
 
 def house(surface, x, y, h, w, transparency, resolution):
     '''
@@ -123,6 +126,7 @@ def house(surface, x, y, h, w, transparency, resolution):
     railings(housesurf, colour, x, y, h, w, resolution)
     surface.blit(housesurf, (0, 0))
 
+
 def railings(surface, colour, x, y, h, w, resolution):
     '''
     function draws railings
@@ -144,6 +148,7 @@ def railings(surface, colour, x, y, h, w, resolution):
         x3 += 2 * (w + 20) // 11
     surface.blit(railsurf, (0, 0))
 
+
 def roof(surface, roofcolour, pipecolour, x, y, h, w, resolution):
     '''
     function draws a roof with pipes
@@ -163,6 +168,7 @@ def roof(surface, roofcolour, pipecolour, x, y, h, w, resolution):
     rect(roofsurf, pipecolour, (x + w // 3, y - 2 * h // 10 - 10, w // 30, h // 5))
     rect(roofsurf, pipecolour, (x + w // 2, y - 2 * h // 10, w // 15, h // 8))
     surface.blit(roofsurf, (0, 0))
+ 
  
 def cloud(surface, color, rect, resolution):
     '''
